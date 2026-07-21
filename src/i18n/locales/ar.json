@@ -1,0 +1,141 @@
+{
+  "brand": { "name": "بناء مارت", "tagline": "مواد البناء تصلك أينما كنت." },
+  "lang": { "switch": "English", "current": "العربية" },
+  "nav": {
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "categories": "الفئات",
+    "buildingMaterials": "مواد البناء",
+    "toolsEquipment": "العدد والمعدات",
+    "electrical": "الكهرباء",
+    "plumbing": "السباكة",
+    "paintFinishing": "الدهانات والتشطيبات",
+    "flooringTiles": "الأرضيات والبلاط",
+    "doorsPanels": "الأبواب والألواح",
+    "gardenOutdoor": "الحدائق والخارجية",
+    "safetyEquipment": "معدات السلامة",
+    "calculators": "حاسبات المواد",
+    "materialQuote": "طلب عرض سعر للمواد",
+    "findHandyman": "ابحث عن فني",
+    "trackOrder": "تتبع الطلب",
+    "projects": "المشاريع",
+    "help": "المساعدة"
+  },
+  "actions": {
+    "shopProducts": "تسوّق المنتجات",
+    "calculateMaterials": "احسب المواد",
+    "findHandyman": "ابحث عن فني",
+    "requestQuote": "اطلب عرض سعر بالجملة",
+    "addToCart": "أضف إلى السلة",
+    "viewProduct": "عرض المنتج",
+    "orderWithAi": "اطلب بمساعدة الذكاء الاصطناعي",
+    "sendYourList": "أرسل لائحتك",
+    "search": "بحث",
+    "confirm": "تأكيد",
+    "edit": "تعديل",
+    "viewAll": "عرض الكل",
+    "signIn": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "signOut": "تسجيل الخروج",
+    "calculate": "احسب",
+    "addResultToCart": "أضف النتيجة إلى السلة"
+  },
+  "hero": {
+    "title": "كل ما يحتاجه مشروعك، من الأساس حتى التشطيب",
+    "subtitle": "أكثر من 1000 منتج للبناء والترميم والأدوات مع اختيار ذكي لمركبة التوصيل وفنيين موثوقين.",
+    "searchPlaceholder": "ابحث بالمنتج أو الرمز أو الباركود…"
+  },
+  "sections": {
+    "mainCategories": "تسوّق حسب الفئة",
+    "shopByProject": "تسوّق حسب المشروع",
+    "calculators": "حاسبات المواد",
+    "materialsInstallation": "مواد + تركيب",
+    "professionals": "الخدمات المهنية",
+    "delivery": "توصيل ذكي",
+    "contractor": "للمقاولين والشركات",
+    "featured": "منتجات مميزة",
+    "promotions": "العروض",
+    "recentlyViewed": "شوهدت مؤخراً",
+    "trust": "لماذا تتسوق معنا"
+  },
+  "projects": {
+    "buildWall": "بناء جدار",
+    "renovateBathroom": "تجديد حمام",
+    "paintHome": "دهان منزل",
+    "installFlooring": "تركيب أرضيات",
+    "repairPlumbing": "إصلاح سباكة",
+    "upgradeElectrical": "تحديث الكهرباء",
+    "waterproofRoof": "عزل سطح",
+    "buildOutdoor": "بناء منطقة خارجية"
+  },
+  "delivery": {
+    "explainer": "نختار مركبة التوصيل المناسبة تلقائياً بناءً على وزن طلبك وحجمه وأبعاده ومتطلبات المناولة — من الدراجة النارية إلى شاحنة الرافعة.",
+    "vehicle": "المركبة المقدّرة",
+    "charge": "التوصيل المقدّر",
+    "quotationRequired": "مطلوب عرض سعر للتوصيل",
+    "multiVehicle": "مطلوب أكثر من مركبة",
+    "totalWeight": "الوزن الإجمالي",
+    "totalVolume": "الحجم المقدّر",
+    "longestItem": "أطول عنصر",
+    "pallets": "المنصات"
+  },
+  "trust": {
+    "securePayment": "دفع آمن",
+    "cod": "الدفع عند الاستلام",
+    "verifiedPros": "فنيون موثوقون",
+    "scheduledDelivery": "توصيل مجدول",
+    "genuine": "منتجات أصلية",
+    "support": "دعم العملاء"
+  },
+  "contractor": {
+    "title": "ابنِ أكثر مع حساب أعمال",
+    "body": "أسعار المقاولين وخصومات الكميات وأوامر الشراء وشروط الائتمان وكشوف حساب شهرية.",
+    "cta": "سجّل شركتك"
+  },
+  "product": {
+    "unit": "وحدة البيع",
+    "coverage": "التغطية",
+    "sku": "الرمز",
+    "price": "السعر",
+    "stock": "المخزون",
+    "inStock": "متوفر",
+    "lowStock": "مخزون منخفض",
+    "outOfStock": "غير متوفر",
+    "backorder": "طلب مسبق",
+    "variants": "اختر النوع",
+    "quantity": "الكمية",
+    "specifications": "المواصفات الفنية",
+    "buyMaterialOnly": "شراء المواد فقط",
+    "buyWithInstallation": "شراء + طلب تركيب",
+    "requestSiteVisit": "طلب زيارة موقع",
+    "requestQuote": "طلب عرض سعر بالجملة",
+    "weight": "الوزن",
+    "dimensions": "الأبعاد"
+  },
+  "cart": {
+    "title": "سلتك",
+    "empty": "سلتك فارغة",
+    "subtotal": "المجموع الفرعي",
+    "tax": "الضريبة",
+    "deliveryEstimate": "تقدير التوصيل",
+    "total": "الإجمالي",
+    "checkout": "إتمام الطلب",
+    "remove": "إزالة",
+    "continueShopping": "متابعة التسوق"
+  },
+  "calc": {
+    "title": "حاسبات المواد",
+    "subtitle": "قدّر احتياج مشروعك بدقة ثم أضفه مباشرة إلى سلتك.",
+    "result": "النتيجة",
+    "estimateNote": "هذه تقديرات بناءً على المعلومات المُدخلة."
+  },
+  "common": {
+    "loading": "جارٍ التحميل…",
+    "noResults": "لا توجد نتائج",
+    "error": "حدث خطأ ما",
+    "currency": "ر.س",
+    "from": "من",
+    "each": "للوحدة",
+    "perUnit": "لكل {{unit}}"
+  }
+}

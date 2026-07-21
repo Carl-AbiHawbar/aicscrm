@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+/*
+  BinaaMart design system
+  Construction-commerce visual language: industrial strength, reliability,
+  technical accuracy. Tokens are defined here (not hard-coded in components).
+*/
+@theme {
+  /* Brand — safety amber + steel/graphite */
+  --color-brand-50: #fffbeb;
+  --color-brand-100: #fef3c7;
+  --color-brand-200: #fde68a;
+  --color-brand-300: #fcd34d;
+  --color-brand-400: #fbbf24;
+  --color-brand-500: #f59e0b;
+  --color-brand-600: #d97706;
+  --color-brand-700: #b45309;
+  --color-brand-800: #92400e;
+  --color-brand-900: #78350f;
+
+  /* Steel / graphite neutrals for industrial feel */
+  --color-steel-50: #f8fafc;
+  --color-steel-100: #f1f5f9;
+  --color-steel-200: #e2e8f0;
+  --color-steel-300: #cbd5e1;
+  --color-steel-400: #94a3b8;
+  --color-steel-500: #64748b;
+  --color-steel-600: #475569;
+  --color-steel-700: #334155;
+  --color-steel-800: #1e293b;
+  --color-steel-900: #0f172a;
+
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  /* Arabic-optimised stack; falls back gracefully */
+  --font-arabic: 'Noto Kufi Arabic', 'Tajawal', 'Segoe UI', sans-serif;
+
+  --radius-card: 0.75rem;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+/* Arabic typography + RTL: driven by <html dir="rtl" lang="ar"> */
+html[lang='ar'] {
+  font-family: var(--font-arabic);
+}
+
+body {
+  @apply bg-steel-50 text-steel-900 antialiased;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Logical-property helpers so spacing flips correctly in RTL.
+   Prefer Tailwind logical utilities (ms-*, me-*, ps-*, pe-*, start-*, end-*)
+   in components; these are safety nets for third-party markup. */
+[dir='rtl'] .flip-x {
+  transform: scaleX(-1);
+}
+
+/* Focus visibility for accessibility */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Loading skeleton shimmer */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.skeleton {
+  @apply relative overflow-hidden bg-steel-200;
+}
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+[dir='rtl'] .skeleton::after {
+  animation-direction: reverse;
+}

@@ -1,0 +1,141 @@
+{
+  "brand": { "name": "BinaaMart", "tagline": "Construction materials, delivered right." },
+  "lang": { "switch": "العربية", "current": "English" },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "categories": "Categories",
+    "buildingMaterials": "Building Materials",
+    "toolsEquipment": "Tools & Equipment",
+    "electrical": "Electrical",
+    "plumbing": "Plumbing",
+    "paintFinishing": "Paint & Finishing",
+    "flooringTiles": "Flooring & Tiles",
+    "doorsPanels": "Doors & Panels",
+    "gardenOutdoor": "Garden & Outdoor",
+    "safetyEquipment": "Safety Equipment",
+    "calculators": "Material Calculators",
+    "materialQuote": "Request a Material Quote",
+    "findHandyman": "Find a Handyman",
+    "trackOrder": "Track Order",
+    "projects": "Projects",
+    "help": "Help"
+  },
+  "actions": {
+    "shopProducts": "Shop Products",
+    "calculateMaterials": "Calculate Materials",
+    "findHandyman": "Find a Handyman",
+    "requestQuote": "Request a Bulk Quotation",
+    "addToCart": "Add to cart",
+    "viewProduct": "View product",
+    "orderWithAi": "Order with AI",
+    "sendYourList": "Send Your List",
+    "search": "Search",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "viewAll": "View all",
+    "signIn": "Sign in",
+    "register": "Register",
+    "signOut": "Sign out",
+    "calculate": "Calculate",
+    "addResultToCart": "Add result to cart"
+  },
+  "hero": {
+    "title": "Everything your project needs, from foundation to finish",
+    "subtitle": "Over 1,000 construction, renovation and hardware products with smart delivery-vehicle matching and verified professionals.",
+    "searchPlaceholder": "Search products, SKU or barcode…"
+  },
+  "sections": {
+    "mainCategories": "Shop by category",
+    "shopByProject": "Shop by project",
+    "calculators": "Material calculators",
+    "materialsInstallation": "Materials + installation",
+    "professionals": "Professional services",
+    "delivery": "Smart delivery",
+    "contractor": "For contractors & businesses",
+    "featured": "Featured products",
+    "promotions": "Promotions",
+    "recentlyViewed": "Recently viewed",
+    "trust": "Why shop with us"
+  },
+  "projects": {
+    "buildWall": "Build a wall",
+    "renovateBathroom": "Renovate a bathroom",
+    "paintHome": "Paint a home",
+    "installFlooring": "Install flooring",
+    "repairPlumbing": "Repair plumbing",
+    "upgradeElectrical": "Upgrade electrical",
+    "waterproofRoof": "Waterproof a roof",
+    "buildOutdoor": "Build an outdoor area"
+  },
+  "delivery": {
+    "explainer": "We select the right delivery vehicle automatically based on your order's weight, volume, dimensions and handling needs — from a motorcycle to a crane truck.",
+    "vehicle": "Estimated vehicle",
+    "charge": "Estimated delivery",
+    "quotationRequired": "Delivery quotation required",
+    "multiVehicle": "Multiple vehicles required",
+    "totalWeight": "Total weight",
+    "totalVolume": "Estimated volume",
+    "longestItem": "Longest item",
+    "pallets": "Pallets"
+  },
+  "trust": {
+    "securePayment": "Secure payment",
+    "cod": "Cash on delivery",
+    "verifiedPros": "Verified professionals",
+    "scheduledDelivery": "Scheduled delivery",
+    "genuine": "Genuine products",
+    "support": "Customer support"
+  },
+  "contractor": {
+    "title": "Build more with a business account",
+    "body": "Contractor pricing, volume discounts, purchase orders, credit terms and monthly statements.",
+    "cta": "Register your business"
+  },
+  "product": {
+    "unit": "Unit of sale",
+    "coverage": "Coverage",
+    "sku": "SKU",
+    "price": "Price",
+    "stock": "Stock",
+    "inStock": "In stock",
+    "lowStock": "Low stock",
+    "outOfStock": "Out of stock",
+    "backorder": "Backorder",
+    "variants": "Select variant",
+    "quantity": "Quantity",
+    "specifications": "Technical specifications",
+    "buyMaterialOnly": "Buy material only",
+    "buyWithInstallation": "Buy + request installation",
+    "requestSiteVisit": "Request site visit",
+    "requestQuote": "Request bulk quote",
+    "weight": "Weight",
+    "dimensions": "Dimensions"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "deliveryEstimate": "Delivery estimate",
+    "total": "Total",
+    "checkout": "Proceed to checkout",
+    "remove": "Remove",
+    "continueShopping": "Continue shopping"
+  },
+  "calc": {
+    "title": "Material calculators",
+    "subtitle": "Estimate exactly what your project needs, then add it straight to your cart.",
+    "result": "Result",
+    "estimateNote": "These are estimates based on the information provided."
+  },
+  "common": {
+    "loading": "Loading…",
+    "noResults": "No results found",
+    "error": "Something went wrong",
+    "currency": "SAR",
+    "from": "from",
+    "each": "each",
+    "perUnit": "per {{unit}}"
+  }
+}
