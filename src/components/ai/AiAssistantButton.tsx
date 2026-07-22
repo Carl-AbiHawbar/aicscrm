@@ -1,69 +1,44 @@
 import { useTranslation } from 'react-i18next'
+import { useLocale } from '@/hooks/useLocale'
 
 /**
- * Floating "Order with AI" launcher — opens the ChatGPT **app**, not the web
- * chat. If the app isn't installed it falls back to the relevant app store
- * (never the ChatGPT website).
+ * Floating "Order with AI" launcher.
  *
- * - Android: `intent://` deep link → app, else Play Store.
- * - iOS: `chatgpt://` scheme → app, else App Store after a short timeout.
- * - Desktop: attempt the desktop-app scheme via a hidden iframe (no web fallback).
+ * Uses ChatGPT's **universal / app link** (https://chatgpt.com). When the
+ * ChatGPT app is installed, iOS/Android intercept a direct tap on this link and
+ * open the app; otherwise it opens the site.
+ *
+ * IMPORTANT: this must be a plain <a> tapped directly — no target="_blank" and
+ * no JavaScript window.location/window.open. Those make the OS bypass the
+ * universal link and open the browser (or the app store) instead.
  */
-const APP_SCHEME = 'chatgpt://'
-const ANDROID_PACKAGE = 'com.openai.chatgpt'
-const IOS_STORE = 'https://apps.apple.com/app/chatgpt/id6448311069'
-const ANDROID_STORE = 'https://play.google.com/store/apps/details?id=com.openai.chatgpt'
+const CHATGPT_URL = 'https://chatgpt.com/'
 
-function openChatGptApp() {
-  const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
-  const isAndroid = /Android/i.test(ua)
-  const isIOS = /iPhone|iPad|iPod/i.test(ua)
-
-  if (isAndroid) {
-    window.location.href =
-      `intent://open#Intent;scheme=chatgpt;package=${ANDROID_PACKAGE};` +
-      `S.browser_fallback_url=${encodeURIComponent(ANDROID_STORE)};end`
-    return
-  }
-
-  if (isIOS) {
-    let opened = false
-    const markOpened = () => {
-      if (document.visibilityState === 'hidden') opened = true
-    }
-    document.addEventListener('visibilitychange', markOpened, { once: true })
-    window.addEventListener('pagehide', () => { opened = true }, { once: true })
-    // If the app didn't open (page still visible), send to the App Store.
-    window.setTimeout(() => {
-      if (!opened && document.visibilityState === 'visible') window.location.href = IOS_STORE
-    }, 1500)
-    window.location.href = APP_SCHEME
-    return
-  }
-
-  // Desktop: try to open the ChatGPT desktop app without navigating away.
-  try {
-    const iframe = document.createElement('iframe')
-    iframe.style.display = 'none'
-    iframe.src = APP_SCHEME
-    document.body.appendChild(iframe)
-    window.setTimeout(() => iframe.remove(), 2000)
-  } catch {
-    /* no-op: do not fall back to the web chat */
-  }
+const PROMPTS = {
+  en:
+    "Hi! I'd like to order construction and building materials from BinaaMart " +
+    '(cement, blocks, tiles, paint, pipes, tools, etc.). Please help me build my ' +
+    'order step by step: ask what I need, the quantities and units, and my ' +
+    'delivery site, then summarise the order for my confirmation.',
+  ar:
+    'مرحباً! أرغب بطلب مواد بناء من بناء مارت (أسمنت، بلوك، بلاط، دهانات، أنابيب، ' +
+    'عدد...). ساعدني في تجهيز طلبي خطوة بخطوة: اسألني عمّا أحتاجه والكميات والوحدات ' +
+    'وموقع التوصيل، ثم لخّص الطلب لتأكيدي.',
 }
 
 export function AiAssistantButton() {
   const { t } = useTranslation()
+  const { locale } = useLocale()
+
+  const href = `${CHATGPT_URL}?q=${encodeURIComponent(PROMPTS[locale])}`
 
   return (
-    <button
-      type="button"
-      onClick={openChatGptApp}
+    <a
+      href={href}
       className="fixed bottom-5 end-5 z-50 flex items-center gap-2 rounded-full bg-brand-500 px-5 py-3 font-bold text-steel-900 shadow-lg transition-colors hover:bg-brand-400"
     >
       <span className="text-lg">🤖</span>
       <span className="hidden sm:inline">{t('ai.title')}</span>
-    </button>
+    </a>
   )
 }
