@@ -5,6 +5,7 @@ import { getProduct } from '@/lib/catalog'
 import { CATEGORIES, BRANDS } from '@/data/categories'
 import { VariantTable } from '@/components/product/VariantTable'
 import { Badge, Card, EmptyState, Skeleton } from '@/components/ui/misc'
+import { AppImage } from '@/components/ui/AppImage'
 import { Button } from '@/components/ui/Button'
 import { UNIT_LABELS } from '@/engine/units'
 import { useLocale } from '@/hooks/useLocale'
@@ -46,9 +47,11 @@ export function ProductPage() {
 
       <div className="grid gap-8 lg:grid-cols-2">
         {/* Gallery */}
-        <div className="aspect-square overflow-hidden rounded-2xl bg-steel-100">
-          <div className="grid h-full w-full place-items-center text-8xl text-steel-300">🧱</div>
-        </div>
+        <AppImage
+          src={product.imageUrl}
+          alt={tr(product.name, locale)}
+          className="aspect-square rounded-2xl"
+        />
 
         {/* Summary */}
         <div>

@@ -4,6 +4,7 @@ import { useCart } from '@/context/CartContext'
 import { estimateDelivery } from '@/lib/logistics'
 import { Button } from '@/components/ui/Button'
 import { Badge, Card, EmptyState } from '@/components/ui/misc'
+import { AppImage } from '@/components/ui/AppImage'
 import { UNIT_LABELS } from '@/engine/units'
 import { useLocale } from '@/hooks/useLocale'
 import { formatMoney, formatNumber, t as tr } from '@/lib/utils'
@@ -47,7 +48,11 @@ export function CartPage() {
             const unit = UNIT_LABELS[l.product.unitOfSale]
             return (
               <Card key={l.variant.id} className="flex gap-4 p-4">
-                <div className="grid h-20 w-20 shrink-0 place-items-center rounded-lg bg-steel-100 text-3xl">🧱</div>
+                <AppImage
+                  src={l.variant.imageUrl}
+                  alt={tr(l.product.name, locale)}
+                  className="h-20 w-20 shrink-0 rounded-lg"
+                />
                 <div className="flex-1">
                   <p className="font-semibold text-steel-900">{tr(l.product.name, locale)}</p>
                   <p className="text-sm text-steel-500">{tr(l.variant.name, locale)}</p>

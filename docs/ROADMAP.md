@@ -53,13 +53,20 @@ complete database schema + docs. Later stages are scaffolded on the same schema
 - ⬜ Mandatory confirmation UI step + change-request approval flows
 
 ## Additional Requirement 2 — AI ordering assistant
-- 🟡 Floating assistant: text → catalogue match (synonyms, confidence tiers) →
-  draft cart → **explicit confirm** before adding. Deterministic client matcher.
+- ✅ End-to-end assistant flow (demo): input → **voice transcription** →
+  transcript review/correction → catalogue match (synonyms, confidence tiers) →
+  editable **draft cart** → **mandatory address confirmation** → server-style
+  delivery/vehicle calculation → **final order summary** → explicit
+  confirmation buttons (Confirm & Proceed to Payment / Confirm Cash on Delivery /
+  Edit Order / Change Address / Speak to Support) → order created. EN/AR + RTL.
+- ✅ Voice transcription via Web Speech API (`src/ai/useSpeechRecognition.ts`),
+  language selectable (EN/AR); never orders from an unconfirmed transcription.
 - ✅ AI schema (conversations, messages, voice notes, transcriptions, extracted
   requests, matches, clarifications, draft carts, confirmations, escalations,
   `product_synonyms`)
-- ⬜ Backend LLM + STT edge functions, voice/upload ingestion, full confirmation
-  + delivery recalculation, human escalation handoff
+- ⬜ Production backend: LLM extraction + server STT edge functions, file/upload
+  ingestion, persistence to `ai_*` tables, real payment redirect, live human
+  escalation handoff (the demo runs client-side with the deterministic matcher).
 
 ## Cross-cutting
 - ✅ No operational data hard-coded in components (seed fallback isolated in

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { SERVICE_CATEGORIES, PROFESSIONALS } from '@/data/services'
 import { Badge, Card, SectionHeading } from '@/components/ui/misc'
+import { AppImage } from '@/components/ui/AppImage'
 import { Button } from '@/components/ui/Button'
 import { useLocale } from '@/hooks/useLocale'
 import { formatMoney, t as tr } from '@/lib/utils'
@@ -30,7 +31,8 @@ export function FindHandymanPage() {
         {pros.map((p) => (
           <Card key={p.id} className="p-5">
             <div className="flex items-center gap-3">
-              <div className="grid h-14 w-14 place-items-center rounded-full bg-steel-100 text-2xl">👷</div>
+              <AppImage src="/images/handyman.jpg" alt={tr(p.name, locale)} className="h-14 w-14 shrink-0 rounded-full" />
+
               <div>
                 <div className="flex items-center gap-2">
                   <p className="font-bold text-steel-900">{tr(p.name, locale)}</p>

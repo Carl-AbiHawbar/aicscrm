@@ -6,6 +6,19 @@ export interface Category {
   name: Bilingual
   icon: string
   navKey: string
+  image?: string
+}
+
+const CATEGORY_IMAGES: Record<string, string> = {
+  'building-materials': '/images/prod-cement.jpg',
+  'tools-equipment': '/images/prod-drill.jpg',
+  electrical: '/images/prod-cable.jpg',
+  plumbing: '/images/prod-pipe.jpg',
+  'paint-finishing': '/images/prod-paint.jpg',
+  'flooring-tiles': '/images/prod-tile.jpg',
+  'doors-panels': '/images/prod-door.jpg',
+  'garden-outdoor': '/images/cat-garden.jpg',
+  'safety-equipment': '/images/cat-safety.jpg',
 }
 
 export const CATEGORIES: Category[] = [
@@ -19,6 +32,8 @@ export const CATEGORIES: Category[] = [
   { id: 'cat-garden', slug: 'garden-outdoor', navKey: 'gardenOutdoor', icon: 'tree', name: { en: 'Garden & Outdoor', ar: 'الحدائق والخارجية' } },
   { id: 'cat-safety', slug: 'safety-equipment', navKey: 'safetyEquipment', icon: 'helmet', name: { en: 'Safety Equipment', ar: 'معدات السلامة' } },
 ]
+
+for (const c of CATEGORIES) c.image = CATEGORY_IMAGES[c.slug]
 
 export const BRANDS = [
   { id: 'brand-alfa', name: { en: 'AlfaBuild', ar: 'ألفا بيلد' } },

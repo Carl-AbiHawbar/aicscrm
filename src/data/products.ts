@@ -343,6 +343,28 @@ export const PRODUCTS: Product[] = [
   },
 ]
 
+// Assign catalogue imagery (served from /public/images). Variant images fall
+// back to the parent product image when not set individually.
+const PRODUCT_IMAGES: Record<string, string> = {
+  'opc-cement-50kg': '/images/prod-cement.jpg',
+  'concrete-block': '/images/prod-block.jpg',
+  'porcelain-floor-tile': '/images/prod-tile.jpg',
+  'interior-emulsion-paint': '/images/prod-paint.jpg',
+  'pvc-pressure-pipe': '/images/prod-pipe.jpg',
+  'common-wire-nails': '/images/prod-nails.jpg',
+  'gypsum-board': '/images/prod-gypsum.jpg',
+  'electrical-cable': '/images/prod-cable.jpg',
+  'cordless-drill': '/images/prod-drill.jpg',
+  'interior-wooden-door': '/images/prod-door.jpg',
+  'steel-rebar': '/images/prod-rebar.jpg',
+  'tile-adhesive': '/images/prod-adhesive.jpg',
+}
+
+for (const p of PRODUCTS) {
+  p.imageUrl = PRODUCT_IMAGES[p.slug] ?? p.imageUrl
+  for (const v of p.variants) v.imageUrl = v.imageUrl ?? p.imageUrl
+}
+
 export function findProductBySlug(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug)
 }

@@ -138,6 +138,16 @@ select v.id, (select id from warehouses where code='WH-CENTRAL'), 1000, 50
 from product_variants v
 on conflict (variant_id, warehouse_id) do nothing;
 
+-- Product images (sample) -----------------------------------------------------
+insert into product_images(product_id, url, alt_en, alt_ar, sort_order)
+select p.id, x.url, x.alt_en, x.alt_ar, 0
+from products p, (values
+  ('opc-cement-50kg','/images/prod-cement.jpg','Portland cement bag','كيس أسمنت بورتلاندي'),
+  ('porcelain-floor-tile','/images/prod-tile.jpg','Porcelain floor tiles','بلاط بورسلان أرضي'),
+  ('steel-rebar','/images/prod-rebar.jpg','Steel reinforcement bars','حديد تسليح')
+) as x(slug,url,alt_en,alt_ar)
+where p.slug = x.slug;
+
 -- Professional profiles (sample) ----------------------------------------------
 with e as (select id from service_categories where slug='electrician'),
      pr as (

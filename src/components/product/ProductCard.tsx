@@ -5,6 +5,7 @@ import { useLocale } from '@/hooks/useLocale'
 import { formatMoney, t as tr } from '@/lib/utils'
 import { UNIT_LABELS } from '@/engine/units'
 import { Badge } from '@/components/ui/misc'
+import { AppImage } from '@/components/ui/AppImage'
 
 export function ProductCard({ product }: { product: Product }) {
   const { t } = useTranslation()
@@ -21,7 +22,7 @@ export function ProductCard({ product }: { product: Product }) {
       className="group flex flex-col overflow-hidden rounded-xl border border-steel-200 bg-white transition-shadow hover:shadow-md"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-steel-100">
-        <div className="grid h-full w-full place-items-center text-4xl text-steel-300">🧱</div>
+        <AppImage src={product.imageUrl} alt={tr(product.name, locale)} className="h-full w-full transition-transform duration-300 group-hover:scale-105" />
         <div className="absolute start-2 top-2 flex gap-1">
           {hasPromo && <Badge tone="danger">%</Badge>}
           {!anyStock && <Badge tone="neutral">{t('product.outOfStock')}</Badge>}

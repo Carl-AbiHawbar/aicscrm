@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/Button'
 import { SectionHeading } from '@/components/ui/misc'
+import { AppImage } from '@/components/ui/AppImage'
 import { ProductCard } from '@/components/product/ProductCard'
 import { CATEGORIES } from '@/data/categories'
 import { SERVICE_CATEGORIES, PROFESSIONALS } from '@/data/services'
@@ -29,8 +30,15 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-steel-900 to-steel-800 text-white">
-        <div className="mx-auto max-w-7xl px-4 py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-steel-900 text-white">
+        <img
+          src="/images/hero-warehouse.jpg"
+          alt=""
+          aria-hidden
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-steel-900 via-steel-900/80 to-steel-900/40" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
           <h1 className="max-w-3xl text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
             {t('hero.title')}
           </h1>
@@ -64,9 +72,9 @@ export function HomePage() {
           <SectionHeading title={t('sections.mainCategories')} action={<Link to="/shop" className="text-sm font-semibold text-brand-600">{t('actions.viewAll')}</Link>} />
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
             {CATEGORIES.map((c) => (
-              <Link key={c.id} to={`/category/${c.slug}`} className="flex flex-col items-center gap-2 rounded-xl border border-steel-200 bg-white p-4 text-center hover:border-brand-400 hover:shadow-sm">
-                <span className="text-3xl">🏗️</span>
-                <span className="text-sm font-semibold text-steel-800">{tr(c.name, locale)}</span>
+              <Link key={c.id} to={`/category/${c.slug}`} className="group overflow-hidden rounded-xl border border-steel-200 bg-white text-center hover:border-brand-400 hover:shadow-sm">
+                <AppImage src={c.image} alt={tr(c.name, locale)} className="aspect-[4/3] w-full transition-transform duration-300 group-hover:scale-105" />
+                <span className="block p-3 text-sm font-semibold text-steel-800">{tr(c.name, locale)}</span>
               </Link>
             ))}
           </div>
