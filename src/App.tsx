@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import { AppLayout } from '@/components/layout/AppLayout'
 import { CartProvider } from '@/context/CartContext'
 import { HomePage } from '@/pages/HomePage'
@@ -11,10 +12,20 @@ import { FindHandymanPage } from '@/pages/FindHandymanPage'
 import { AuthPage } from '@/pages/AuthPage'
 import { NotFoundPage, StagePlaceholder, TrackOrderPage } from '@/pages/misc/SimplePages'
 
+/** Reset scroll to the top on every route/navigation change. */
+function ScrollToTop() {
+  const { pathname, search } = useLocation()
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname, search])
+  return null
+}
+
 export default function App() {
   return (
     <CartProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<HomePage />} />

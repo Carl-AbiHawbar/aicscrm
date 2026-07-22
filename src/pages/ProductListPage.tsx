@@ -61,7 +61,6 @@ export function ProductListPage({ mode }: { mode: Mode }) {
           </select>
         }
       />
-      <p className="mb-4 text-sm text-steel-500">{total} {t('nav.shop')}</p>
 
       {loading ? (
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
