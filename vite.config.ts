@@ -4,14 +4,14 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
 // https://vite.dev/config/
-// `base` is '/aicscrm/' for production builds (GitHub Pages project site) and
-// '/' during local dev. Override with VITE_BASE when deploying elsewhere.
-export default defineConfig(({ command }) => ({
-  base: process.env.VITE_BASE ?? (command === 'build' ? '/aicscrm/' : '/'),
+// Base defaults to '/' (works for local dev and root-domain hosts like Vercel).
+// The GitHub Pages workflow sets VITE_BASE=/aicscrm/ for its subpath deploy.
+export default defineConfig({
+  base: process.env.VITE_BASE ?? '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
-}))
+})

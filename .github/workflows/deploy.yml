@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_BASE: /aicscrm/
       # SPA fallback so client-side routes (e.g. /shop) work on direct load
       - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
