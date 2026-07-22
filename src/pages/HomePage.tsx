@@ -10,7 +10,7 @@ import { SERVICE_CATEGORIES, PROFESSIONALS } from '@/data/services'
 import { CALCULATORS } from '@/engine/calculators'
 import { listProducts } from '@/lib/catalog'
 import { useLocale } from '@/hooks/useLocale'
-import { t as tr } from '@/lib/utils'
+import { asset, t as tr } from '@/lib/utils'
 import type { Product } from '@/types/domain'
 
 const PROJECT_KEYS = [
@@ -32,7 +32,7 @@ export function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-steel-900 text-white">
         <img
-          src="/images/hero-warehouse.jpg"
+          src={asset('images/hero-warehouse.jpg')}
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover opacity-35"
@@ -44,7 +44,7 @@ export function HomePage() {
           </h1>
           <p className="mt-4 max-w-2xl text-steel-300">{t('hero.subtitle')}</p>
 
-          <form action="/search" className="mt-8 max-w-2xl" role="search">
+          <form action={`${import.meta.env.BASE_URL}search`} className="mt-8 max-w-2xl" role="search">
             <div className="flex overflow-hidden rounded-xl bg-white">
               <input name="q" placeholder={t('hero.searchPlaceholder')} className="w-full px-5 py-4 text-steel-900 outline-none" />
               <button className="bg-brand-500 px-6 font-bold text-steel-900 hover:bg-brand-400">{t('actions.search')}</button>

@@ -1,4 +1,5 @@
 import type { Bilingual } from '@/types/domain'
+import { asset } from '@/lib/utils'
 
 export interface Category {
   id: string
@@ -33,7 +34,10 @@ export const CATEGORIES: Category[] = [
   { id: 'cat-safety', slug: 'safety-equipment', navKey: 'safetyEquipment', icon: 'helmet', name: { en: 'Safety Equipment', ar: 'معدات السلامة' } },
 ]
 
-for (const c of CATEGORIES) c.image = CATEGORY_IMAGES[c.slug]
+for (const c of CATEGORIES) {
+  const img = CATEGORY_IMAGES[c.slug]
+  c.image = img ? asset(img) : undefined
+}
 
 export const BRANDS = [
   { id: 'brand-alfa', name: { en: 'AlfaBuild', ar: 'ألفا بيلد' } },

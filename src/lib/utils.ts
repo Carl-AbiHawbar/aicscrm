@@ -5,6 +5,15 @@ export function cn(...inputs: ClassValue[]): string {
   return clsx(inputs)
 }
 
+/**
+ * Resolve a public asset path against the app's base URL so it works both at
+ * the domain root (Vercel) and under a subpath (GitHub Pages, e.g. /aicscrm/).
+ */
+export function asset(path: string): string {
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base}${path.replace(/^\//, '')}`
+}
+
 /** Pick the localized string, falling back to the other language if missing. */
 export function t(value: Bilingual | undefined, locale: Locale): string {
   if (!value) return ''

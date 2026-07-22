@@ -53,7 +53,7 @@ export function Header() {
           <span className="text-lg font-black tracking-tight text-steel-900">{t('brand.name')}</span>
         </Link>
 
-        <form action="/search" className="hidden flex-1 md:block" role="search">
+        <form action={`${import.meta.env.BASE_URL}search`} className="hidden flex-1 md:block" role="search">
           <div className="flex overflow-hidden rounded-lg border border-steel-300">
             <input
               name="q"

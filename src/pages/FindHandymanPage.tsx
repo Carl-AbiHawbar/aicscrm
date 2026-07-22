@@ -5,7 +5,7 @@ import { Badge, Card, SectionHeading } from '@/components/ui/misc'
 import { AppImage } from '@/components/ui/AppImage'
 import { Button } from '@/components/ui/Button'
 import { useLocale } from '@/hooks/useLocale'
-import { formatMoney, t as tr } from '@/lib/utils'
+import { asset, formatMoney, t as tr } from '@/lib/utils'
 
 export function FindHandymanPage() {
   const { t } = useTranslation()
@@ -31,7 +31,7 @@ export function FindHandymanPage() {
         {pros.map((p) => (
           <Card key={p.id} className="p-5">
             <div className="flex items-center gap-3">
-              <AppImage src="/images/handyman.jpg" alt={tr(p.name, locale)} className="h-14 w-14 shrink-0 rounded-full" />
+              <AppImage src={asset('images/handyman.jpg')} alt={tr(p.name, locale)} className="h-14 w-14 shrink-0 rounded-full" />
 
               <div>
                 <div className="flex items-center gap-2">

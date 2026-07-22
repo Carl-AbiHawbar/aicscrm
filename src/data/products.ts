@@ -1,4 +1,5 @@
 import type { HandlingProfile, Product, ProductVariant } from '@/types/domain'
+import { asset } from '@/lib/utils'
 
 /** Sensible defaults for a light, stackable, non-fragile packaged item. */
 function handling(overrides: Partial<HandlingProfile> = {}): HandlingProfile {
@@ -361,7 +362,8 @@ const PRODUCT_IMAGES: Record<string, string> = {
 }
 
 for (const p of PRODUCTS) {
-  p.imageUrl = PRODUCT_IMAGES[p.slug] ?? p.imageUrl
+  const img = PRODUCT_IMAGES[p.slug]
+  p.imageUrl = img ? asset(img) : p.imageUrl
   for (const v of p.variants) v.imageUrl = v.imageUrl ?? p.imageUrl
 }
 
