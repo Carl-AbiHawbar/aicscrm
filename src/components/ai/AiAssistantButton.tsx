@@ -14,7 +14,7 @@ import type { MouseEvent } from 'react'
  */
 const CHATGPT_URL = 'https://chatgpt.com/'
 const IOS_APP_URL = 'chatgpt://chatgpt.com/'
-const ANDROID_PACKAGE = 'com.openai.chatgpt'
+const ANDROID_PLAY_URL = 'https://play.google.com/store/apps/details?id=com.openai.chatgpt'
 
 function handleClick(e: MouseEvent<HTMLAnchorElement>) {
   const ua = typeof navigator !== 'undefined' ? navigator.userAgent : ''
@@ -25,15 +25,9 @@ function handleClick(e: MouseEvent<HTMLAnchorElement>) {
 
   if (isAndroid) {
     e.preventDefault()
-    // Launch the ChatGPT app's main activity directly by package (does NOT
-    // depend on chatgpt.com being a verified "supported web address"). Falls
-    // back to the site if the app isn't installed.
-    window.location.href =
-      'intent://open/#Intent;' +
-      'action=android.intent.action.MAIN;' +
-      'category=android.intent.category.LAUNCHER;' +
-      `package=${ANDROID_PACKAGE};` +
-      `S.browser_fallback_url=${encodeURIComponent(CHATGPT_URL)};end`
+    // Open the ChatGPT Play Store listing (opens the Play Store app, where the
+    // "Open" button launches ChatGPT if installed, or installs it otherwise).
+    window.location.href = ANDROID_PLAY_URL
     return
   }
 
