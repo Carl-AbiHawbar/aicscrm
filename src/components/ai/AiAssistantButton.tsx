@@ -25,8 +25,14 @@ function handleClick(e: MouseEvent<HTMLAnchorElement>) {
 
   if (isAndroid) {
     e.preventDefault()
+    // Launch the ChatGPT app's main activity directly by package (does NOT
+    // depend on chatgpt.com being a verified "supported web address"). Falls
+    // back to the site if the app isn't installed.
     window.location.href =
-      `intent://chatgpt.com/#Intent;scheme=https;package=${ANDROID_PACKAGE};` +
+      'intent://open/#Intent;' +
+      'action=android.intent.action.MAIN;' +
+      'category=android.intent.category.LAUNCHER;' +
+      `package=${ANDROID_PACKAGE};` +
       `S.browser_fallback_url=${encodeURIComponent(CHATGPT_URL)};end`
     return
   }
